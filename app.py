@@ -5,9 +5,12 @@ import json
 import time  # NEU: Wird für die Pause zwischen den API-Anfragen benötigt
 
 # 1. UNSERE QUELLEN (Eine Liste mit den gewünschten RSS-Feeds)
+# Wir zapfen die versteckten RSS-Feeds der größten KI-Newsletter an!
 rss_feeds = [
-    {"name": "OpenAI Blog", "url": "https://openai.com/news/rss.xml"},
-    {"name": "MIT News (Artificial Intelligence)", "url": "https://news.mit.edu/rss/topic/artificial-intelligence2"}
+    {"name": "The Rundown AI", "url": "https://www.therundown.ai/feed"},
+    {"name": "Superhuman AI", "url": "https://www.superhuman.ai/feed"},
+    {"name": "OpenAI Official", "url": "https://openai.com/news/rss.xml"},
+    {"name": "MIT AI News", "url": "https://news.mit.edu/rss/topic/artificial-intelligence2"}
 ]
 
 api_key = os.environ.get("MISTRAL_API_KEY")
