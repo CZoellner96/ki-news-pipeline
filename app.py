@@ -4,13 +4,12 @@ import xml.etree.ElementTree as ET
 import json
 import time  # NEU: Wird für die Pause zwischen den API-Anfragen benötigt
 
-# 1. UNSERE QUELLEN (Eine Liste mit den gewünschten RSS-Feeds)
-# Wir zapfen die versteckten RSS-Feeds der größten KI-Newsletter an!
+# 1. UNSERE QUELLEN (Renommierte Tech-Magazine und Forschungslabore)
 rss_feeds = [
-    {"name": "The Rundown AI", "url": "https://www.therundown.ai/feed"},
-    {"name": "Superhuman AI", "url": "https://www.superhuman.ai/feed"},
     {"name": "OpenAI Official", "url": "https://openai.com/news/rss.xml"},
-    {"name": "MIT AI News", "url": "https://news.mit.edu/rss/topic/artificial-intelligence2"}
+    {"name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/"},
+    {"name": "Google DeepMind", "url": "https://deepmind.google/blog/rss.xml"},
+    {"name": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed/"}
 ]
 
 api_key = os.environ.get("MISTRAL_API_KEY")
