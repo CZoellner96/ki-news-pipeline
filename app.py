@@ -6,11 +6,20 @@ import json
 # 1. DATEN HOLEN (RSS Feed vom OpenAI Blog)
 print("Hole aktuelle News...")
 url = "https://openai.com/news/rss.xml"
-response = urllib.request.urlopen(url)
+
+# TRICK: Wir tarnen unser Python-Skript als normalen Webbrowser, 
+# damit der Server uns nicht wegen Bot-Schutz blockiert (403 Forbidden vermeiden).
+req = urllib.request.Request(
+    url, 
+    headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
+)
+
+response = urllib.request.urlopen(req)
 rss_data = response.read()
 
 # RSS XML parsen, um den neuesten Artikel zu finden
 root = ET.fromstring(rss_data)
+# ... hier geht dein alter Code ganz normal weiter mit latest_item = ...
 latest_item = root.find(".//item")
 title = latest_item.find("title").text
 link = latest_item.find("link").text
