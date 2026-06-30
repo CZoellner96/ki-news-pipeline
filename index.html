@@ -6,26 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autonome KI-News</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; padding: 40px; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #007bb5; border-bottom: 2px solid #f4f7f6; padding-bottom: 10px; }
-        .badge { background: #ff7043; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.9em; font-weight: bold; }
-        .score { font-size: 1.5em; font-weight: bold; color: #e67e22; margin: 15px 0; }
-        .link-btn { display: inline-block; background: #007bb5; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
-        .meta { color: #7f8c8d; font-size: 0.9em; margin-bottom: 20px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fafbfc; color: #24292e; padding: 40px; margin: 0; }
+        .container { max-width: 750px; margin: 40px auto; background: white; padding: 40px; border: 1px solid #e1e4e8; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        h1 { color: #ff7043; font-size: 24px; border-bottom: 1px solid #e1e4e8; padding-bottom: 15px; margin-top: 0; }
+        h2 { font-size: 20px; color: #0366d6; margin-top: 5px; }
+        .badge { background: #ff7043; color: white; padding: 4px 10px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+        .source-badge { background: #6c757d; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; margin-bottom: 10px; display: inline-block; font-weight: bold; }
+        .score { font-size: 18px; font-weight: bold; color: #28a745; margin: 20px 0; background: #f1f8ff; padding: 10px; border-left: 4px solid #0366d6; }
+        .link-btn { display: inline-block; background: #0366d6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
+        .link-btn:hover { background: #0056b3; }
+        hr { border: 0; border-top: 1px solid #e1e4e8; margin: 35px 0; }
+        p { line-height: 1.6; }
     </style>
 </head>
 <body>
     <div class="container">
-        <span class="badge">Powered by Mistral AI</span>
-        <h1>Top KI-News des Tages</h1>
+        <span class="badge">Pipeline v2.0 (Multi-Source Aggregator)</span>
+        <h1>Das KI-Briefing des Tages</h1>
+        <hr>
+
+        <div class="source-badge">Quelle: OpenAI Blog</div>
         <h2>Mapping Europe’s AI Workforce Opportunity</h2>
         <div class="score">KI-Impact-Score: 8/10</div>
-        <p><strong>Warum?</strong> Die Analyse von OpenAI zu KI-bedingten Jobveränderungen in der EU ist hochrelevant für Arbeitsmarktpolitik und Wirtschaft, mit globalen Implikationen.</p>
+        <p><strong>Analysten-Meinung:</strong> Der Artikel adressiert ein hochrelevantes Thema mit direktem Einfluss auf Arbeitsmärkte und Wirtschaftspolitik in der EU.</p>
+        <h3>Automatische Zusammenfassung:</h3>
+        <p>Ein neuer OpenAI-Bericht analysiert, wie KI die Arbeitswelt in der EU verändern könnte. Er identifiziert Berufe, die durch Automatisierung bedroht sind, Wachstumschancen bieten oder Arbeitsabläufe anpassen müssen. Die Studie liefert damit eine Grundlage für politische und wirtschaftliche Entscheidungen.</p>
+        <a href="https://openai.com/index/mapping-ai-jobs-transition-eu" target="_blank" class="link-btn">Originalen Artikel lesen &rarr;</a>
         <hr>
-        <h3>KI-Zusammenfassung (Deutsch):</h3>
-        <p>Ein neuer OpenAI-Bericht kartiert, wie KI die Arbeitslandschaft in der EU verändern könnte, indem er Automatisierungsrisiken, Wachstumschancen und Anpassungen von Berufsfeldern identifiziert. Die Studie liefert datenbasierte Einblicke für Politik und Unternehmen. Besonders relevant ist die Fokussierung auf europäische Arbeitsmärkte.</p>
-        <a href="https://openai.com/index/mapping-ai-jobs-transition-eu" target="_blank" class="link-btn">Originalen Artikel lesen</a>
+        
+        <div class="source-badge">Quelle: MIT News (Artificial Intelligence)</div>
+        <h2>Inaugural Music Technology Research Showcase celebrates work of new graduate program’s initial students </h2>
+        <div class="score">KI-Impact-Score: 6/10</div>
+        <p><strong>Analysten-Meinung:</strong> Der Artikel thematisiert ein spezifisches Event mit akademischem Fokus, aber ohne direkte technologische oder marktrelevante Inhalte.</p>
+        <h3>Automatische Zusammenfassung:</h3>
+        <p>Ein Musiktechnologie-Event feiert die Abschlussarbeiten des ersten Jahrgangs eines neuen Graduiertenprogramms. Associate Professor Anna Huang hält einen Vortrag zum Thema "Human-AI Resonance". Die Veranstaltung war vollständig ausgebucht.</p>
+        <a href="https://news.mit.edu/2026/inaugural-mit-music-technology-research-showcase-celebrates-work-students-0629" target="_blank" class="link-btn">Originalen Artikel lesen &rarr;</a>
+        <hr>
+        
     </div>
 </body>
 </html>
