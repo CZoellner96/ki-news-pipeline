@@ -1,0 +1,33 @@
+name: Automatisiertes KI-Update
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Führt das Skript jeden Morgen um 8:00 Uhr aus
+  workflow_dispatch:     # Erlaubt es uns, das Skript manuell per Knopfdruck zu starten
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # Erlaubt GitHub, die generierte index.html zu speichern
+    steps:
+    - name: Code auschecken
+      uses: actions/checkout@v4
+
+    - name: Python einrichten
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Skript ausführen
+      env:
+        MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}  # Lädt deinen geheimen Schlüssel sicher ins System
+      run: python app.py
+
+    - name: Website in GitHub hochladen
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add index.html
+        git commit -m "Automatisches Website-Update durch KI" || echo "Keine Änderungen"
+        git push
