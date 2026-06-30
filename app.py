@@ -19,7 +19,7 @@ description = latest_item.find("description").text
 # 2. KI FRAGEN (Mistral API)
 print("KI analysiert den Artikel mit Mistral...")
 # Wichtig: Die Umgebungsvariable heißt jetzt MISTRAL_API_KEY
-api_key = os.environ.get(G2LHxeHhhu3VloA8HMzubnTLF1SRIeET) 
+api_key = os.environ.get("MISTRAL_API_KEY") 
 
 prompt = f"""
 Du bist ein präziser Tech-Analyst. Analysiere diesen Artikel:
