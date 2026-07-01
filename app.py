@@ -2,7 +2,8 @@ import os
 import urllib.request
 import xml.etree.ElementTree as ET
 import json
-import time  # NEU: Wird für die Pause zwischen den API-Anfragen benötigt
+import time  
+from datetime import datetime, timedelta # NEU: Für den Zeitstempel und die deutsche Uhrzeit
 
 # 1. UNSERE QUELLEN (Renommierte Tech-Magazine und Forschungslabore)
 rss_feeds = [
@@ -14,8 +15,10 @@ rss_feeds = [
 
 api_key = os.environ.get("MISTRAL_API_KEY")
 
-# 2. HTML-GRÜST VORBEREITEN
-# Wir öffnen das HTML-Dokument schon hier, bevor die Schleife beginnt
+# Deutsche Sommerzeit berechnen (UTC + 2 Stunden)
+aktuelle_zeit = (datetime.utcnow() + timedelta(hours=2)).strftime('%d.%m.%Y um %H:%M Uhr')
+
+# 2. HTML-GERÜST VORBEREITEN
 html_content = """
 <!DOCTYPE html>
 <html lang="de">
@@ -28,7 +31,7 @@ html_content = """
         .container { max-width: 750px; margin: 40px auto; background: white; padding: 40px; border: 1px solid #e1e4e8; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         h1 { color: #ff7043; font-size: 24px; border-bottom: 1px solid #e1e4e8; padding-bottom: 15px; margin-top: 0; }
         h2 { font-size: 20px; color: #0366d6; margin-top: 5px; }
-        .badge { background: #ff7043; color: white; padding: 4px 10px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+        .badge { background: #ff7043; color: white; padding: 4px 10px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-right: 5px; }
         .source-badge { background: #6c757d; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; margin-bottom: 10px; display: inline-block; font-weight: bold; }
         .score { font-size: 18px; font-weight: bold; color: #28a745; margin: 20px 0; background: #f1f8ff; padding: 10px; border-left: 4px solid #0366d6; }
         .link-btn { display: inline-block; background: #0366d6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
@@ -40,6 +43,7 @@ html_content = """
 <body>
     <div class="container">
         <span class="badge">Pipeline v2.0 (Multi-Source Aggregator)</span>
+        <span class="badge" style="background: #28a745;">Letztes Update: """ + aktuelle_zeit + """</span>
         <h1>Das KI-Briefing des Tages</h1>
         <hr>
 """
@@ -101,7 +105,6 @@ for feed in rss_feeds:
             ki_ergebnis = json.loads(res_data["choices"][0]["message"]["content"])
             
         # 4. DATEN ANS HTML ANHÄNGEN
-        # Mit += fügen wir den neuen Artikel einfach unten an die bisherige Website dran
         html_content += f"""
         <div class="source-badge">Quelle: {feed['name']}</div>
         <h2>{title}</h2>
