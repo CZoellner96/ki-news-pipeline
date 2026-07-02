@@ -2,7 +2,7 @@ name: Automatisiertes KI-Update
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Führt das Skript jeden Morgen um 8:00 Uhr aus
+    - cron: '0 5 * * *'  # Führt das Skript jeden Morgen um 8:00 Uhr aus
   workflow_dispatch:     # Erlaubt es uns, das Skript manuell per Knopfdruck zu starten
 
 jobs:
